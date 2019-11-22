@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>입력</title>
+    <style>h1{
+      text-align: center;
+      font-size: 60px;
+      border-bottom: 1px solid grey;
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 50px;
+    }
+    body{
+      margin : 0;
+    }
+    #grid{
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+    #list{
+      width  : 100px;
+      border-right: 1px solid grey;
+      margin : 0;
+      padding: 20px;
+      text-align: center;
+    }
+    #list li{
+      padding: 10px;
+      list-style: none;
+    }
+    fieldset{
+      width:500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    submit{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    .jl{
+      margin-bottom: 10px;
+      width : 400px;
+      height: 30px;
+    }
+    .x1234{
+      height: 35px; width:100px;
+      margin-left: 10px;
+    }</style>
+  </head>
+  <body>
+    <form class="loginsu" action="" method="post">
+        <fieldset>
+            <legend>로그인 화면</legend>
+            <input type="text"  id="id" class="jl" placeholder="ID"> 
+            <input type="password" id="pw" class="jl" name="password" placeholder="password"> <br>
+            <submit>
+              <input type="button"class="x1234" onclick="login_main()" value="제출" >
+              <input type="reset" class="x1234" value="reset">
+            </submit>
+          </fieldset>
+    </form>
+    <script>
+      function login_main(){
+        const id = document.getElementById("id").value;
+        const pw = document.getElementById("pw").value;
+        debugger
+        var info = {
+          id : "sull",
+          pw : "12345"
+        };
+
+        var id_Reg = /^[a-z0-9]{4,12}$/g;
+        var id_Reg1 = !id_Reg.test(id);
+        if(id_Reg1){
+          alert("아이디는 4~12자의 영어소문자, 숫자만 입력 가능합니다.");
+        }else{
+          id_check(id,pw,info);
+        }
+      }
+      function id_check(id,pw,info){ //아이디 비번 비교
+        if(id!==info.id){
+          alert("아이디가 일치하지 않습니다.");
+          console.log(id!==info.id);
+        }else if(pw!==info.pw){
+          alert("비밀번호가 일치하지 않습니다.");
+          console.log(pw!==info.pw);
+        }else{
+          console.log("id = " + id);
+          console.log("pw = " + pw);
+          console.log("info = " +info);
+          location.href="index.html";//로그인 되면 이동
+        }
+      } 
+    </script>
+  </body>
+</html>
