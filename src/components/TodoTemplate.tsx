@@ -1,11 +1,11 @@
 import React, {ReactNode } from "react";
 import "../style/TodoTemplate.scss";
-type PropsTypes = {
+interface IProps  {
     children:ReactNode;
 }
 
 
-const TodoTemplate = ({children}:PropsTypes) =>{
+const TodoTemplate = ({children}:IProps) =>{
     return (
     <div className="TodoTemplate">
         <div className="app-title">일정 관리</div>
